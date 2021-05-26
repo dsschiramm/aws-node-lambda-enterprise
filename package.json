@@ -4,7 +4,8 @@
 	"description": "Enterprise NodeJS REST API",
 	"main": "handler.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"deploy": "sls deploy",
+		"test": "sls invoke test"
 	},
 	"repository": {
 		"type": "git",
@@ -18,9 +19,11 @@
 	"homepage": "https://github.com/dsschiramm/aws-node-lambda-enterprise#readme",
 	"dependencies": {
 		"mysql2": "^2.2.5",
-		"sequelize": "^6.6.2"
+		"sequelize": "^6.6.2",
+		"serverless": "^2.43.1"
 	},
 	"devDependencies": {
+		"serverless-mocha-plugin": "^1.12.0",
 		"serverless-offline": "^7.0.0"
 	}
 }

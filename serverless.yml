@@ -10,7 +10,6 @@ provider:
     runtime: nodejs12.x
     lambdaHashingVersion: 20201221
     region: sa-east-1
-    memorySize: 256
     stage: ${self:custom.secrets.NODE_ENV}
     environment:
         NODE_ENV: ${self:custom.secrets.NODE_ENV}
@@ -73,3 +72,4 @@ functions:
 
 plugins:
     - serverless-offline
+    - serverless-mocha-plugin

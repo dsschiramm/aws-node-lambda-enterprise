@@ -39,7 +39,7 @@ module.exports.create = async (event) => {
 module.exports.getOne = async (event) => {
 	try {
 		const { Employee } = await connectToDatabase();
-		const employee = await Employee.findById(event.pathParameters.id);
+		const employee = await Employee.findByPk(event.pathParameters.id);
 
 		if (!employee) {
 			throw new HTTPError(404, `Funcionário com identificador: ${event.pathParameters.id} não foi encontrado.`);
@@ -80,7 +80,7 @@ module.exports.update = async (event) => {
 	try {
 		const input = JSON.parse(event.body);
 		const { Employee } = await connectToDatabase();
-		const employee = await Employee.findById(event.pathParameters.id);
+		const employee = await Employee.findByPk(event.pathParameters.id);
 
 		if (!employee) {
 			throw new HTTPError(404, `Funcionário com identificador: ${event.pathParameters.id} não foi encontrado.`);
@@ -114,7 +114,7 @@ module.exports.update = async (event) => {
 module.exports.delete = async (event) => {
 	try {
 		const { Employee } = await connectToDatabase();
-		const employee = await Employee.findById(event.pathParameters.id);
+		const employee = await Employee.findByPk(event.pathParameters.id);
 
 		if (!employee) {
 			throw new HTTPError(404, `Funcionário com identificador: ${event.pathParameters.id} não foi encontrado.`);
